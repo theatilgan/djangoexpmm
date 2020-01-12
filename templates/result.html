@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<table class="table table-bordered">
+    <thead class="alert-success">
+        <tr>
+            <th class="cntrr">Başlık</th>
+            <th class="cntrr">Soru Fotoğrafı</th>
+            <th class="cntrr">Kullanıcı</th>
+            <th class="cntrr">Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr >
+            <td style="text-align: center; text-transform: capitalize;">{{ member.title }}</td>
+            {% if member.article_image %}
+            <td><a href="{% url 'article:detail' member.id %}"><img  src="{{member.article_image.url}}"  height=300 width=400 alt="asdasd"></a></td>
+            {% else %}
+            <td style="text-align: center;"><a href="{% url 'article:detail' member.id %}"><h5>Soru fotoğrafı eklenmemiş</h5></a></td>
+            {% endif %}
+            <td style="text-align: center;">{{ member.author }}</td>
+            <td>{{ member.created_date }}</td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+{% endblock body %}
+    

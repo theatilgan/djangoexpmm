@@ -1,0 +1,41 @@
+a:link{
+    text-decoration: none;
+}
+
+.sru {
+    transition: transform .2s; /* Animation */
+}
+.sru:hover {
+    transform: scale(3);
+    position: relative;
+    z-index: 1;
+}
+.Main{
+    float: left;
+    margin-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.tt{
+    
+    transition: transform .2s;
+    overflow:hidden; 
+    text-transform: capitalize; 
+    text-align: center;
+}
+.tt:hover{
+    transform: scale(2);
+    position: relative;
+    z-index: 1;
+}
+.gstr {
+    transition: transform .2s; /* Animation */
+}
+.gstr:hover {
+    transform: scale(3);
+    position: relative;
+    z-index: 1;
+}
+.cntrr{
+    text-align: center;
+}

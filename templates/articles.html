@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="row">
+
+  <div class="col-md-10 offset-md-3">
+    <div class="col-lg-8">
+      <h3>Sorularım</h3>
+      <hr>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 offset-md-3">
+    <div class="col-lg-8">
+      <form>
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-5 offset-2">
+            <input type="text" class="form-control" name="keyword" maxlength="64" placeholder="Ara...">
+          </div>
+          <div class="col-3">
+            <button type="submit" class="btn btn-danger">Ara</button>
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+
+</div>
+
+  {% if articles %}
+  
+  {% for article in articles %}
+  
+  <div class="col-2 Main">
+    <div>
+      <a href="{% url 'article:detail' article.id %}"><p class="tt">{{article.title}}</p></a>
+    </div>
+    <div class="M1">
+      {% if article.article_image %}
+      <a href="{% url 'article:detail' article.id %}"><img class="img-fluid rounded sru" src="{{article.article_image.url}}" alt=""></a>
+      {% endif %}
+    </div>
+   
+  </div>
+  
+  
+  
+  
+  
+  {% endfor %}
+  </div>
+  
+  {% else %}
+  <div class ="row">
+      
+      <div class="col-md-10 offset-md-3">
+          <div class="col-lg-8">
+  <div class = "alert alert-danger">
+    Soru Bulunamadı
+  </div>
+  </div>
+  </div>
+  </div>
+  {% endif %}
+  {% endblock body %}
